@@ -10,18 +10,26 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cors({
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "https://angkor-learn-project.vercel.app",
+      "http://localhost:5173"
+    ];
 
-app.use(
-  cors({
-    origin: [
-      "https://angkor-learn-project.vercel.app",  // your Vercel frontend
-      "http://localhost:5173"                     // local dev
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
-  })
-);
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS not allowed for this origin: " + origin), false);
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
+}));
 
 // Connect Database
 connectDB();
