@@ -1,0 +1,133 @@
+/* Page */
+.physics-page {
+  padding: 60px 10%;
+  background: #f8fafc;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #0f172a;
+}
+
+/* Header */
+.physics-header {
+  max-width: 700px;
+  margin-bottom: 48px;
+}
+
+.physics-header h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.physics-header p {
+  color: #475569;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Layout */
+.physics-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 900px) {
+  .physics-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards */
+.physics-card {
+  background: white;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+}
+
+.physics-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.description {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  color: #334155;
+}
+
+input {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  font-size: 0.95rem;
+}
+
+/* Results */
+.results {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+}
+
+.results div {
+  display: flex;
+  flex-direction: column;
+}
+
+.results span {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.results strong {
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease forwards;
+}
+
+.delay {
+  animation-delay: 0.15s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
