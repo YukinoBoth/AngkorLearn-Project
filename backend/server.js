@@ -11,15 +11,17 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-app.use(cors({
-  origin: [
-  "https://angkor-learn-project.vercel.app",
-  "http://localhost:5173"   // optional for local development
-]
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "https://angkor-learn-project.vercel.app",  // your Vercel frontend
+      "http://localhost:5173"                     // local dev
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
 
 // Connect Database
 connectDB();
