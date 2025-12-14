@@ -12,7 +12,10 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://angkor-learn-project-f9ql-5hnfbtorg-yukinoboths-projects.vercel.app",
+  origin: [
+  "https://angkor-learn-project.vercel.app",
+  "http://localhost:5173"   // optional for local development
+]
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
